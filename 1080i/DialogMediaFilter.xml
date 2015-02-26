@@ -70,7 +70,7 @@
                 <description>Default Spin Control</description>
                 <width>800</width>
             </control>
-            <control type="sliderex" id="10">
+            <control type="sliderex" id="13">
                 <description>Default Slider Control</description>
                 <width>800</width>
             </control>
