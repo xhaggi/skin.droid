@@ -105,7 +105,7 @@
                 <onleft>450</onleft>
                 <onright>450</onright>
                 <showonepage>true</showonepage>
-                <animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+                <animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(60) + !Container(450).Scrolling">Conditional</animation>
             </control>
             <control type="button">
                 <description>Footer</description>
@@ -113,8 +113,8 @@
                 <posy>648</posy>
                 <width>1280</width>
                 <height>72</height>
-                <label>$INFO[Container.NumItems,, $LOCALIZE[31027]]</label>
-                <label2>$INFO[Container.CurrentPage]$INFO[Container.NumPages,/]</label2>
+                <label>$INFO[Container(450).NumItems,, $LOCALIZE[31027]]</label>
+                <label2>$INFO[Container(450).CurrentPage]$INFO[Container(450).NumPages,/]</label2>
                 <include>NoTextureButton</include>
                 <onclick>noop</onclick>
                 <disabledcolor>Blue2</disabledcolor>
