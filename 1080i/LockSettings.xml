@@ -17,7 +17,7 @@
                 <height>54</height>
                 <include>toast_back</include>
             </control>
-            <control type="button" id="2">
+            <control type="label" id="2">
                 <description>header label</description>
                 <posx>480</posx>
                 <posy>72</posy>
