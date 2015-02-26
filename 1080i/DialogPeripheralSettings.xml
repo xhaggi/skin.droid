@@ -57,19 +57,6 @@
                 <textoffsetx>30</textoffsetx>
                 <enable>no</enable>
             </control>
-            <control type="button" id="3">
-                <description>Heading</description>
-                <posx>480</posx>
-                <posy>126</posy>
-                <width>35004</width>
-                <height>54</height>
-                <font>Small</font>
-                <disabledcolor>White2</disabledcolor>
-                <textcolor>grey</textcolor>
-                <label>5</label>
-                <textoffsetx>30</textoffsetx>
-                <enable>no</enable>
-            </control>
         </control>
 
         <control type="grouplist" id="5">
@@ -100,7 +87,7 @@
             <width>1368</width>
         </control>
 
-        <control type="sliderex" id="10">
+        <control type="sliderex" id="13">
             <description>Default Slider</description>
             <width>1368</width>
         </control>
