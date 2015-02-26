@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="132">
-    <defaultcontrol always="true">3</defaultcontrol>
+    <defaultcontrol always="true">20</defaultcontrol>
     <include>DialogEffect</include>
     <controls>
         <include>GlobalOverlay</include>
@@ -47,12 +47,12 @@
             <control type="group">
                 <posx>20</posx>
                 <posy>84</posy>
-                <control type="spincontrolex" id="3">
+                <control type="spincontrolex" id="20">
                     <description>Directory Content</description>
                     <width>1440</width>
                     <font>Small</font>
                     <onup>5</onup>
-                    <ondown>4</ondown>
+                    <ondown>21</ondown>
                     <onleft>9000</onleft>
                     <onright>9000</onright>
                 </control>
@@ -63,11 +63,11 @@
                     <textoffsetx>30</textoffsetx>
                     <label>20344</label>
                 </control>
-                <control type="list" id="4">
+                <control type="list" id="21">
                     <posy>80</posy>
                     <width>1440</width>
                     <height>246</height>
-                    <onup>3</onup>
+                    <onup>20</onup>
                     <onleft>9000</onleft>
                     <onright>60</onright>
                     <ondown>5</ondown>
@@ -133,7 +133,7 @@
                     <posy>80</posy>
                     <height>216</height>
                     <width>6</width>
-                    <onleft>4</onleft>
+                    <onleft>21</onleft>
                     <onright>9000</onright>
                     <showonepage>true</showonepage>
                     <animation effect="fade" start="100" end="0" time="500" delay="500" condition="!Control.HasFocus(60) + !Container(4).OnScrollNext + !Container(4).OnScrollPrevious">Conditional</animation>
@@ -144,9 +144,9 @@
                     <width>1440</width>
                     <height>432</height>
                     <itemgap>0</itemgap>
-                    <onup>4</onup>
+                    <onup>21</onup>
                     <ondown>29</ondown>
-                    <onleft>4</onleft>
+                    <onleft>21</onleft>
                     <onright>29</onright>
                     <orientation>vertical</orientation>
                 </control>
@@ -183,7 +183,7 @@
                         <label>222</label>
                         <align>center</align>
                     </control>
-                    <control type="button" id="6">
+                    <control type="button" id="22">
                         <description>Settings</description>
                         <include>DefaultButton</include>
                         <width>493</width>
