@@ -19,8 +19,22 @@
                 <height>918</height>
                 <include>toast_back</include>
             </control>
-
-            <control type="label" id="1001">
+            
+            <control type="label" id="2">
+                <description>header label</description>
+                <posx>480</posx>
+                <posy>72</posy>
+                <width>1440</width>
+                <height>54</height>
+                <font>Small</font>
+                <textcolor>grey</textcolor>
+                <disabledcolor>Blue2</disabledcolor>
+                <label>-</label>
+                <textoffsetx>30</textoffsetx>
+                <enable>no</enable>
+            </control>
+            
+            <control type="label" id="102">
                 <description>Profile Directory</description>
                 <posx>15</posx>
                 <posy>96</posy>
@@ -28,7 +42,7 @@
                 <font>-</font>
             </control>
 
-            <control type="image" id="2">
+            <control type="image" id="101">
                 <description>profile image</description>
                 <posx>0</posx>
                 <posy>72</posy>
@@ -37,7 +51,7 @@
                 <texture>DefaultActor.png</texture>
                 <aspectratio>keep</aspectratio>
             </control>
-            <control type="button" id="1000">
+            <control type="button" id="103">
                 <description>button</description>
                 <posx>480</posx>
                 <posy>126</posy>
