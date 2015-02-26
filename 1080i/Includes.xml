@@ -346,28 +346,6 @@
                 <control type="group">
                     <width>90</width>
                     <height>68</height>
-                    <control type="button" id="11115">
-                        <posx>0</posx>
-                        <posy>0</posy>
-                        <width>90</width>
-                        <height>68</height>
-                        <onclick>$VAR[NotificationSettingsButtonActionVar]</onclick>
-                        <onleft>11121</onleft>
-                        <onright>11116</onright>
-                        <ondown>$VAR[NotificationButtonActionsVar]</ondown>
-                        <include>DefaultButton</include>
-                    </control>
-                    <control type="image">
-                        <posx>21</posx>
-                        <posy>9</posy>
-                        <width>48</width>
-                        <height>48</height>
-                        <texture>icons/settings_nf.png</texture>
-                    </control>
-                </control>
-                <control type="group">
-                    <width>90</width>
-                    <height>68</height>
                     <control type="button" id="11116">
                         <posx>0</posx>
                         <posy>0</posy>

@@ -767,7 +767,7 @@
                         </item>
                         -->
                         <item>
-                            <description>Pictures: Pictures</description>
+                            <description>Misc: Pictures</description>
                             <label>1</label>
                             <icon>home/icons/DefaultPicture.png</icon>
                             <onclick>ActivateWindow(Pictures)</onclick>
@@ -778,7 +778,7 @@
                             <label>8</label>
                             <icon>home/icons/DefaultAddonWeather.png</icon>
                             <onclick>ActivateWindow(Weather,return)</onclick>
-                            <visible>Container(800).HasFocus(6)</visible>
+                            <visible>Container(800).HasFocus(5)</visible>
                         </item>
                         <item>
                             <description>Misc: Apps</description>
@@ -786,13 +786,20 @@
                             <icon>home/icons/DefaultAddonProgram.png</icon>
                             <onclick condition="!System.Platform.Android">ActivateWindow(Programs,Addons,return)</onclick>
                             <onclick condition="System.Platform.Android">ActivateWindow(Programs)</onclick>
-                            <visible>Container(800).HasFocus(6)</visible>
+                            <visible>Container(800).HasFocus(5)</visible>
                         </item>
                         <item>
                             <description>Misc: Addons</description>
                             <label>24001</label>
                             <icon>home/icons/DefaultAddon.png</icon>
                             <onclick>ActivateWindow(AddonBrowser)</onclick>
+                            <visible>Container(800).HasFocus(6)</visible>
+                        </item>
+                        <item>
+                            <description>Misc: Settings</description>
+                            <label>21417</label>
+                            <icon>home/icons/DefaultSetting.png</icon>
+                            <onclick>ActivateWindow(Settings)</onclick>
                             <visible>Container(800).HasFocus(6)</visible>
                         </item>
                     </content>
@@ -937,13 +944,13 @@
                             <onclick>SetFocus(700)</onclick>
                         </item>
                         <item id="5">
-                            <label>1</label>
-                            <icon>home/icons/DefaultPicture.png</icon>
+                            <label>31052</label>
+                            <icon>home/icons/DefaultAddonProgram.png</icon>
                             <onclick>SetFocus(700)</onclick>
                         </item>
                         <item id="6">
-                            <label>Misc</label>
-                            <icon>home/icons/DefaultAddon.png</icon>
+                            <label>21417</label>
+                            <icon>home/icons/DefaultSetting.png</icon>
                             <onclick>SetFocus(700)</onclick>
                         </item>
                     </content>
