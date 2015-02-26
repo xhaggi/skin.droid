@@ -75,6 +75,18 @@
                 <width>480</width>
                 <align>left</align>
             </control>
+            <!--
+            <control type="image" id="11">
+                <description>separator image</description>
+                <height>2</height>
+                <texture>separator2.png</texture>
+            </control>
+            --->
+            <control type="sliderex" id="13">
+                <description>Default Slider</description>
+                <width>1300</width>
+                <align>left</align>
+            </control>
         </control>
         <control type="group" id="9999">
             <desription>Menu</desription>
