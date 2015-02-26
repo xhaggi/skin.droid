@@ -69,6 +69,11 @@
                     <onright>61</onright>
                     <onleft>61</onleft>
                     <orientation>vertical</orientation>
+                    <control type="button" id="12">
+                        <description>Launch Addon</description>
+                        <width>480</width>
+                        <label>518</label>
+                    </control>
                     <control type="button" id="6">
                         <description>Install/Uninstall Addon button</description>
                         <width>480</width>
