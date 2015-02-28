@@ -2,7 +2,7 @@
 <window id="115">
 	<defaultcontrol always="true">901</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
-	<visible>Window.IsVisible(fullscreenvideo) + !Window.IsVisible(script-XBMC-Subtitles-main.xml) + !Window.IsVisible(VideoOSD) + !Window.IsVisible(MusicOSD)</visible>
+	<visible>[Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation)] + !Window.IsVisible(script-XBMC-Subtitles-main.xml) + !Window.IsVisible(VideoOSD) + !Window.IsVisible(MusicOSD)</visible>
 	<controls>
 		<control type="group">
 			<visible>[Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused]</visible>
@@ -30,11 +30,11 @@
 				<posx>30</posx>
 				<posy>0</posy>
 				<height>72</height>
-				<label>$INFO[VideoPlayer.Title]</label>
+				<label>$INFO[Player.Title]</label>
 				<width>1720</width>
 				<font>Small</font>
 				<textcolor>Blue2</textcolor>
-				<visible>!VideoPlayer.Content(episodes) + !VideoPlayer.Content(livetv)</visible>
+				<visible>!Player.HasAudio + !VideoPlayer.Content(episodes) + !VideoPlayer.Content(livetv)</visible>
 			</control>
 			<control type="label">
 				<description>Genre + Year</description>
@@ -45,7 +45,7 @@
 				<width>1720</width>
 				<textcolor>White</textcolor>
 				<font>Medium_Small_Caps</font>
-				<visible>!VideoPlayer.Content(episodes) + !VideoPlayer.Content(livetv)</visible>
+				<visible>!Player.HasAudio + !VideoPlayer.Content(episodes) + !VideoPlayer.Content(livetv)</visible>
 			</control>
 			<control type="label">
 				<description>Episode Title</description>
@@ -100,6 +100,53 @@
 						<posy>35</posy>
 						<height>72</height>
 						<label>$INFO[VideoPlayer.Genre]</label>
+						<width>1720</width>
+						<textcolor>White</textcolor>
+						<font>Medium_Small_Caps</font>
+					</control>
+				</control>
+			</control>
+			<control type="grouplist">
+				<description>Track Number + Title</description>
+				<visible>Player.HasAudio</visible>
+				<posx>30</posx>
+				<posy>0</posy>
+				<orientation>horizontal</orientation>
+				<itemgap>0</itemgap>
+				<width>1300</width>
+				<height>100</height>
+				<usecontrolcoords>true</usecontrolcoords>
+				<control type="label">
+					<description>Track Number</description>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width min="0" max="400">auto</width>
+					<height>100</height>
+					<label>$INFO[MusicPlayer.TrackNumber]</label>
+					<font>Large_78</font>
+					<textcolor>Blue2</textcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="group">
+					<posx>20</posx>
+					<posy>0</posy>
+					<control type="label">
+						<description>Title</description>
+						<posx>0</posx>
+						<posy>0</posy>
+						<height>72</height>
+						<width>1300</width>
+						<label>$INFO[MusicPlayer.Title]</label>
+						<font>Small</font>
+						<textcolor>Blue2</textcolor>
+					</control>
+					<control type="label">
+						<description>Genre</description>
+						<posx>0</posx>
+						<posy>35</posy>
+						<height>72</height>
+						<label>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ,]$INFO[MusicPlayer.Year, • ,]$INFO[MusicPlayer.Genre, • ,]</label>
 						<width>1720</width>
 						<textcolor>White</textcolor>
 						<font>Medium_Small_Caps</font>
@@ -183,6 +230,20 @@
 				<font>Smaller</font>
 				<align>justify</align>
 				<autoscroll delay="11500" time="5000" repeat="7500" />
+				<visible>Player.HasVideo</visible>
+			</control>
+			<control type="textbox">
+				<description>Plot</description>
+				<posx>30</posx>
+				<posy>115</posy>
+				<width>1400</width>
+				<height>160</height>
+				<label>$INFO[MusicPlayer.Comment]</label>
+				<textcolor>White2</textcolor>
+				<font>Smaller</font>
+				<align>justify</align>
+				<autoscroll delay="11500" time="5000" repeat="7500" />
+				<visible>Player.HasAudio</visible>
 			</control>
 			<control type="label">
 				<description>Empty Plot</description>
@@ -196,7 +257,7 @@
 				<shadowcolor>22000000</shadowcolor>
 				<scroll>false</scroll>
 				<aligny>center</aligny>
-				<visible>IsEmpty(VideoPlayer.Plot)</visible>
+				<visible>IsEmpty(VideoPlayer.Plot) + IsEmpty(MusicPlayer.Comment)</visible>
 			</control>
 			<control type="image">
 				<posx>1480</posx>
@@ -207,6 +268,7 @@
 				<aspectratio align="right">keep</aspectratio>
 			</control>
 			<control type="grouplist">
+				<visible>Player.HasVideo</visible>
 				<posx>30</posx>
 				<posy>265</posy>
 				<itemgap>20</itemgap>
@@ -258,6 +320,61 @@
 					<texture>$INFO[VideoPlayer.Rating,flags/stars/,.png]</texture>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 					<visible>!IsEmpty(VideoPlayer.Rating)</visible>
+				</control>
+			</control>
+			<control type="grouplist">
+				<visible>Player.HasAudio</visible>
+				<posx>30</posx>
+				<posy>265</posy>
+				<itemgap>20</itemgap>
+				<orientation>horizontal</orientation>
+				<control type="image">
+					<width>100</width>
+					<height>100</height>
+					<colordiffuse>White2</colordiffuse>
+					<texture>$INFO[MusicPlayer.Codec,flags/audio/,.png]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<visible>!IsEmpty(MusicPlayer.Codec)</visible>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>100</height>
+					<label>$INFO[MusicPlayer.BitRate,, kbps]</label>
+					<font>Medium_Small</font>
+					<textcolor>White2</textcolor>
+					<visible>!IsEmpty(MusicPlayer.BitRate)</visible>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>100</height>
+					<label>$INFO[MusicPlayer.BitsPerSample,, $LOCALIZE[612]]</label>
+					<font>Medium_Small</font>
+					<textcolor>White2</textcolor>
+					<visible>!IsEmpty(MusicPlayer.BitsPerSample)</visible>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>100</height>
+					<label>$INFO[MusicPlayer.SampleRate,, $LOCALIZE[613]]</label>
+					<font>Medium_Small</font>
+					<textcolor>White2</textcolor>
+					<visible>!IsEmpty(MusicPlayer.SampleRate)</visible>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>100</height>
+					<label>$INFO[MusicPlayer.Channels,, $LOCALIZE[19019]]</label>
+					<font>Medium_Small</font>
+					<textcolor>White2</textcolor>
+					<visible>!IsEmpty(MusicPlayer.Channels)</visible>
+				</control>
+				<control type="image">
+					<width>100</width>
+					<height>100</height>
+					<colordiffuse>White2</colordiffuse>
+					<texture>$INFO[MusicPlayer.Rating,flags/stars/,.png]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<visible>!IsEmpty(MusicPlayer.Rating)</visible>
 				</control>
 			</control>
 		</control>
