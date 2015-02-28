@@ -77,7 +77,7 @@
 					<label>$INFO[VideoPlayer.ChannelNumber]</label>
 					<font>Large_78</font>
 					<textcolor>Blue2</textcolor>
-					<align>center</align>
+					<align>left</align>
 					<aligny>center</aligny>
 				</control>
 				<control type="group">

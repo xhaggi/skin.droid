@@ -95,9 +95,9 @@
                             </control>
                             <control type="label">
                                 <description>ChannelNumber</description>
-                                <posx>840</posx>
+                                <posx>0</posx>
                                 <posy>0</posy>
-                                <width>784</width>
+                                <width>840</width>
                                 <height>96</height>
                                 <font>Clock</font>
                                 <align>right</align>
@@ -220,9 +220,9 @@
                             <control type="group">
                                 <control type="label">
                                     <description>ChannelNumber</description>
-                                    <posx>840</posx>
+                                    <posx>0</posx>
                                     <posy>0</posy>
-                                    <width>784</width>
+                                    <width>840</width>
                                     <height>96</height>
                                     <font>Clock</font>
                                     <align>right</align>

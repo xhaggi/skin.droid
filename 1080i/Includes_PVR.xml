@@ -94,9 +94,9 @@
                         </control>
                         <control type="label">
                             <description>ChannelNumber</description>
-                            <posx>450</posx>
+                            <posx>0</posx>
                             <posy>0</posy>
-                            <width>365</width>
+                            <width>450</width>
                             <height>80</height>
                             <font>Small</font>
                             <align>right</align>
@@ -148,9 +148,9 @@
                         </control>
                         <control type="label">
                             <description>ChannelNumber</description>
-                            <posx>450</posx>
+                            <posx>0</posx>
                             <posy>0</posy>
-                            <width>365</width>
+                            <width>450</width>
                             <height>80</height>
                             <font>Small</font>
                             <align>right</align>
@@ -810,9 +810,9 @@
             </control>
             <control type="label">
                 <description>ChannelNumber</description>
-                <posx>972</posx>
+                <posx>0</posx>
                 <posy>0</posy>
-                <width>916</width>
+                <width>972</width>
                 <height>96</height>
                 <font>Clock</font>
                 <align>right</align>
@@ -924,9 +924,9 @@
             </control>
             <control type="label">
                 <description>ChannelNumber</description>
-                <posx>972</posx>
+                <posx>0</posx>
                 <posy>0</posy>
-                <width>916</width>
+                <width>972</width>
                 <height>96</height>
                 <font>Clock</font>
                 <align>right</align>
