@@ -1,480 +1,384 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window id="135">
-    <defaultcontrol always="true">14</defaultcontrol>
+<window>
+    <defaultcontrol always="true">10</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
-    <onunload>ClearProperty(FanartZoom,songinformation)</onunload>
-    <include>DialogEffect</include>
+    <include>MediaMenuReset</include>
     <controls>
+        <control type="image">
+            <posx>0</posx>
+            <posy>72</posy>
+            <width>1920</width>
+            <height>1008</height>
+            <aspectratio>scale</aspectratio>
+            <texture>$INFO[ListItem.Art(fanart)]</texture>
+        </control>
+        <control type="button">
+            <include>TouchOverlay</include>
+            <onclick>Dialog.Close(songinformation)</onclick>
+        </control>
         <include>NotificationCenter</include>
         <control type="group">
+            <posx>170</posx>
+            <posy>140</posy>
+            <control type="button">
+                <description>Inhibit Overlay Close Action</description>
+                <posx>-21</posx>
+                <posy>-21</posy>
+                <width>1622</width>
+                <height>900</height>
+                <include>NoTextureButton</include>
+            </control>
             <control type="image">
-                <posy>72</posy>
-                <width>600</width>
-                <height>1008</height>
-                <include>toast_back</include>
+                <posx>-21</posx>
+                <posy>-21</posy>
+                <width>1622</width>
+                <height>900</height>
+                <include>DialogBack</include>
             </control>
-            <control type="image" id="3">
+            <control type="label">
+                <description>Title</description>
+                <posx>20</posx>
+                <width>1560</width>
+                <height>72</height>
+                <font>Medium</font>
+                <aligny>center</aligny>
+                <label>$INFO[ListItem.Title]$INFO[ListItem.Top250, # , ]</label>
+                <textcolor>$VAR[ThemeColorVar]</textcolor>
+                <textoffsetx>8</textoffsetx>
+            </control>
+            <control type="label">
+                <description>TrackNumber, Duration and Ratings</description>
+                <posx>1560</posx>
+                <width>1560</width>
+                <height>72</height>
+                <font>Smaller</font>
+                <align>right</align>
+                <aligny>center</aligny>
+                <label>$INFO[ListItem.TrackNumber,$LOCALIZE[554] , • ]$INFO[ListItem.Duration,, $LOCALIZE[12391]]$INFO[ListItem.RatingAndVotes, • ,]</label>
+                <textcolor>$VAR[ThemeColorVar]</textcolor>
+                <textoffsetx>8</textoffsetx>
+            </control>
+            <control type="image">
+                <description>Header Line</description>
                 <posx>0</posx>
                 <posy>72</posy>
-                <width>600</width>
-                <height>600</height>
-                <aspectratio>scale</aspectratio>
-                <texture background="true">$INFO[ListItem.Icon]</texture>
-            </control>
-            <control type="grouplist" id="9000">
-                <posx>0</posx>
-                <posy>672</posy>
-                <width>600</width>
-                <height>318</height>
-                <onleft>15</onleft>
-                <onright>4002</onright>
-                <onup>9000</onup>
-                <ondown>9000</ondown>
-                <itemgap>0</itemgap>
-                <orientation>vertical</orientation>
-                <control type="button" id="10">
-                    <description>Ok button</description>
-                    <width>600</width>
-                    <label>186</label>
-                </control>
-                <control type="button" id="11">
-                    <description>Cancel button</description>
-                    <width>600</width>
-                    <label>222</label>
-                </control>
-                <control type="button" id="12">
-                    <description>Album Info button</description>
-                    <width>600</width>
-                    <label>10523</label>
-                </control>
-                <control type="button" id="13">
-                    <description>Get Thumb button</description>
-                    <width>600</width>
-                    <label>13405</label>
-                </control>
-                <control type="button" id="4000">
-                    <description>Filler</description>
-                    <width>600</width>
-                    <height>30</height>
-                    <enable>no</enable>
-                    <label>-</label>
-                </control>
+                <width>1580</width>
+                <height>2</height>
+                <texture>common/blue2.png</texture>
             </control>
             <control type="group">
-                <posx>600</posx>
-                <posy>72</posy>
+                <posx>20</posx>
+                <posy>82</posy>
                 <control type="image">
-                    <width>1320</width>
-                    <height>90</height>
-                    <include>toast_back</include>
+                    <description>Poster Thumb</description>
+                    <posx>25</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>300</height>
+                    <aspectratio aligny="top">keep</aspectratio>
+                    <texture background="true">$VAR[InfoPosterThumbVar]</texture>
+                    <bordersize>2</bordersize>
                 </control>
-                <control type="label">
-                    <posx>256</posx>
-                    <width>256</width>
-                    <height>90</height>
-                    <font>Medium_Caps2</font>
-                    <align>right</align>
-                    <label>$INFO[ListItem.TrackNumber]:</label>
-                    <textcolor>Blue2</textcolor>
-                    <textoffsetx>8</textoffsetx>
-                </control>
-                <control type="label">
-                    <posx>256</posx>
-                    <width>1064</width>
-                    <height>90</height>
-                    <font>Medium_Caps2</font>
-                    <label>$INFO[ListItem.Title]</label>
-                    <textoffsetx>8</textoffsetx>
-                    <textcolor>White2</textcolor>
-                </control>
-                <control type="group">
-                    <posy>90</posy>
-                    <control type="image">
-                        <width>256</width>
-                        <height>72</height>
-                        <include>toast_back</include>
-                    </control>
-                    <control type="image">
-                        <posx>256</posx>
-                        <width>1064</width>
-                        <height>72</height>
-                        <include>toast_back</include>
-                    </control>
-                    <control type="group">
-                        <control type="label">
-                            <posx>256</posx>
-                            <width>256</width>
-                            <height>72</height>
-                            <font>Small</font>
-                            <align>right</align>
-                            <textcolor>$VAR[ThemeColorVar]</textcolor>
-                            <label>$LOCALIZE[557]:</label>
-                            <textoffsetx>8</textoffsetx>
-                        </control>
-                        <control type="label">
-                            <posx>256</posx>
-                            <width>1064</width>
-                            <height>72</height>
-                            <font>Small</font>
-                            <label>$INFO[ListItem.Artist]</label>
-                            <textcolor>White2</textcolor>
-                            <textoffsetx>8</textoffsetx>
-                        </control>
-                    </control>
-                </control>
-                <control type="group">
-                    <posy>162</posy>
-                    <control type="image">
-                        <width>256</width>
-                        <height>72</height>
-                        <include>toast_back</include>
-                    </control>
-                    <control type="image">
-                        <posx>256</posx>
-                        <width>1064</width>
-                        <height>72</height>
-                        <include>toast_back</include>
-                    </control>
-                    <control type="group">
-                        <control type="label">
-                            <posx>256</posx>
-                            <width>256</width>
-                            <height>72</height>
-                            <font>Small</font>
-                            <align>right</align>
-                            <textcolor>$VAR[ThemeColorVar]</textcolor>
-                            <label>$LOCALIZE[558]:</label>
-                            <textoffsetx>8</textoffsetx>
-                        </control>
-                        <control type="label">
-                            <posx>256</posx>
-                            <width>1064</width>
-                            <height>72</height>
-                            <font>Small</font>
-                            <label fallback="N/A">$INFO[ListItem.Album]</label>
-                            <textcolor>White2</textcolor>
-                            <textoffsetx>8</textoffsetx>
-                        </control>
-                    </control>
-                </control>
-                <control type="group">
-                    <posy>234</posy>
-                    <control type="image">
-                        <width>256</width>
-                        <height>72</height>
-                        <include>toast_back</include>
-                    </control>
-                    <control type="image">
-                        <posx>256</posx>
-                        <width>1064</width>
-                        <height>72</height>
-                        <include>toast_back</include>
-                    </control>
-                    <control type="label">
-                        <posx>256</posx>
-                        <width>256</width>
-                        <height>72</height>
-                        <font>Small</font>
-                        <align>right</align>
-                        <textcolor>$VAR[ThemeColorVar]</textcolor>
-                        <label>$LOCALIZE[515]:</label>
-                        <textoffsetx>8</textoffsetx>
-                    </control>
-                    <control type="label">
-                        <posx>256</posx>
-                        <width>1064</width>
-                        <height>72</height>
-                        <font>Small</font>
-                        <label>$INFO[ListItem.Genre]</label>
-                        <textcolor>White2</textcolor>
-                        <textoffsetx>8</textoffsetx>
-                    </control>
-                </control>
-                <control type="group">
-                    <posy>306</posy>
-                    <control type="image">
-                        <width>256</width>
-                        <height>72</height>
-                        <include>toast_back</include>
-                    </control>
-                    <control type="image">
-                        <posx>256</posx>
-                        <width>1064</width>
-                        <height>72</height>
-                        <include>toast_back</include>
-                    </control>
-                    <control type="group">
-                        <visible>!StringCompare(ListItem.Artist,ListItem.AlbumArtist)</visible>
-                        <control type="label">
-                            <posx>256</posx>
-                            <width>256</width>
-                            <height>72</height>
-                            <font>Small</font>
-                            <align>right</align>
-                            <textcolor>$VAR[ThemeColorVar]</textcolor>
-                            <label>$LOCALIZE[566]:</label>
-                            <textoffsetx>8</textoffsetx>
-                        </control>
-                        <control type="label">
-                            <posx>256</posx>
-                            <width>1064</width>
-                            <height>72</height>
-                            <font>Small</font>
-                            <label>$INFO[ListItem.AlbumArtist]</label>
-                            <textcolor>White2</textcolor>
-                            <textoffsetx>8</textoffsetx>
-                        </control>
-                    </control>
-                </control>
-                <control type="group">
-                    <posy>378</posy>
-                    <control type="image">
-                        <width>720</width>
-                        <height>342</height>
-                        <include>toast_back</include>
-                    </control>
-                    <control type="image">
-                        <posx>720</posx>
+                <control type="grouplist" id="9000">
+                    <description>Actions</description>
+                    <posx>0</posx>
+                    <posy>310</posy>
+                    <width>350</width>
+                    <height>372</height>
+                    <itemgap>0</itemgap>
+                    <onup>9000</onup>
+                    <ondown>9000</ondown>
+                    <onright>61</onright>
+                    <onleft>61</onleft>
+                    <orientation>vertical</orientation>
+                    <control type="button" id="10">
+                        <description>Ok button</description>
                         <width>600</width>
-                        <height>342</height>
-                        <include>toast_back</include>
+                        <label>186</label>
+                    </control>
+                    <control type="button" id="11">
+                        <description>Cancel button</description>
+                        <width>600</width>
+                        <label>222</label>
+                    </control>
+                    <control type="button" id="12">
+                        <description>Album Info button</description>
+                        <width>600</width>
+                        <label>10523</label>
+                    </control>
+                    <control type="button" id="13">
+                        <description>Get Thumb button</description>
+                        <width>600</width>
+                        <label>13405</label>
                     </control>
                 </control>
                 <control type="group">
-                    <posy>720</posy>
-                    <control type="image">
-                        <width>256</width>
-                        <height>72</height>
-                        <include>toast_back</include>
-                    </control>
-                    <control type="image">
-                        <posy>72</posy>
-                        <width>256</width>
-                        <height>126</height>
-                        <include>toast_back</include>
-                    </control>
-                    <control type="image">
-                        <posx>256</posx>
-                        <width>1064</width>
-                        <height>198</height>
-                        <include>toast_back</include>
-                    </control>
-                    <control type="label">
-                        <posx>256</posx>
-                        <width>256</width>
-                        <height>72</height>
-                        <font>Small</font>
-                        <align>right</align>
-                        <textcolor>$VAR[ThemeColorVar]</textcolor>
-                        <label>$LOCALIZE[569]:</label>
-                        <textoffsetx>8</textoffsetx>
-                    </control>
-                    <control type="textbox" id="4">
-                        <description>Plot</description>
-                        <posx>264</posx>
-                        <posy>10</posy>
-                        <width>1000</width>
-                        <height>192</height>
-                        <align>left</align>
-                        <font>Plot</font>
-                        <label>$INFO[ListItem.Comment]</label>
-                        <pagecontrol>61</pagecontrol>
-                        <autoscroll>False</autoscroll>
-                        <animation effect="fade" start="100" end="80" time="200" tween="sine" easing="inout" condition="!Control.HasFocus(61)">Conditional</animation>
-                    </control>
-                    <control type="image">
-                        <posx>256</posx>
-                        <posy>126</posy>
-                        <width>1064</width>
-                        <height>72</height>
-                        <texture border="3">dialogs/toast_back_blue_mask.png</texture>
-                    </control>
-                    <control type="scrollbar" id="61">
-                        <posx>256</posx>
-                        <width>1064</width>
-                        <height>198</height>
-                        <onup>4002</onup>
-                        <onleft>9000</onleft>
-                        <onright>9000</onright>
-                        <showonepage>false</showonepage>
-                        <texturesliderbackground>-</texturesliderbackground>
-                        <texturesliderbar>-</texturesliderbar>
-                        <texturesliderbarfocus border="2,0,8,0">dialogs/scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-                    </control>
-                </control>
-            </control>
-            <control type="group" id="6051">
-                <posx>0</posx>
-                <posy>90r</posy>
-                <width>1920</width>
-                <control type="group">
-                    <control type="button" id="14">
-                        <description>Decrease Rating</description>
-                        <posx>0</posx>
-                        <posy></posy>
-                        <width>300</width>
-                        <height>90</height>
-                        <label>31023</label>
-                        <align>center</align>
-                        <font>Medium_Bold_Floor_Caps</font>
-                        <onclick>DecreaseRating</onclick>
-                        <onleft>15</onleft>
-                        <onright>15</onright>
-                        <onup>9000</onup>
-                        <ondown>9000</ondown>
-                    </control>
-
-                    <control type="button" id="15">
-                        <description>Increase Rating</description>
-                        <posx>300</posx>
+                    <posx>380</posx>
+                    <posy>0</posy>
+                    <control type="group">
                         <posy>0</posy>
-                        <width>300</width>
-                        <height>90</height>
-                        <label>31024</label>
-                        <align>center</align>
-                        <font>Medium_Bold_Floor_Caps</font>
-                        <onclick>IncreaseRating</onclick>
-                        <onleft>14</onleft>
-                        <onright>14</onright>
-                        <onup>9000</onup>
-                        <ondown>9000</ondown>
+                        <control type="group">
+                            <posy>0</posy>
+                            <control type="group">
+                                <description>Artist</description>
+                                <control type="label">
+                                    <posx>0</posx>
+                                    <width>256</width>
+                                    <height>62</height>
+                                    <font>Smaller</font>
+                                    <aligny>top</aligny>
+                                    <textcolor>$VAR[ThemeColorVar]</textcolor>
+                                    <label>$LOCALIZE[557]:</label>
+                                    <textoffsetx>8</textoffsetx>
+                                </control>
+                                <control type="label">
+                                    <posx>256</posx>
+                                    <width>680</width>
+                                    <height>62</height>
+                                    <font>Smaller</font>
+                                    <aligny>top</aligny>
+                                    <label>$INFO[ListItem.Artist]</label>
+                                    <textcolor>White2</textcolor>
+                                    <textoffsetx>8</textoffsetx>
+                                </control>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <posy>62</posy>
+                            <control type="group">
+                                <description>Album</description>
+                                <control type="label">
+                                    <posx>0</posx>
+                                    <width>256</width>
+                                    <height>62</height>
+                                    <font>Smaller</font>
+                                    <aligny>top</aligny>
+                                    <textcolor>$VAR[ThemeColorVar]</textcolor>
+                                    <label>$LOCALIZE[558]:</label>
+                                    <textoffsetx>8</textoffsetx>
+                                </control>
+                                <control type="label">
+                                    <posx>256</posx>
+                                    <width>680</width>
+                                    <height>62</height>
+                                    <font>Smaller</font>
+                                    <aligny>top</aligny>
+                                    <label fallback="416">$INFO[ListItem.Album]</label>
+                                    <textcolor>White2</textcolor>
+                                    <textoffsetx>8</textoffsetx>
+                                </control>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <posy>124</posy>
+                            <control type="group">
+                                <description>Year</description>
+                                <control type="label">
+                                    <posx>0</posx>
+                                    <width>256</width>
+                                    <height>62</height>
+                                    <font>Smaller</font>
+                                    <aligny>top</aligny>
+                                    <textcolor>$VAR[ThemeColorVar]</textcolor>
+                                    <label>$LOCALIZE[562]:</label>
+                                    <textoffsetx>8</textoffsetx>
+                                </control>
+                                <control type="label">
+                                    <posx>256</posx>
+                                    <width>680</width>
+                                    <height>62</height>
+                                    <font>Smaller</font>
+                                    <aligny>top</aligny>
+                                    <label fallback="416">$INFO[ListItem.Year]</label>
+                                    <textcolor>White2</textcolor>
+                                    <textoffsetx>8</textoffsetx>
+                                </control>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <posy>186</posy>
+                            <control type="group">
+                                <description>Genre</description>
+                                <control type="label">
+                                    <posx>0</posx>
+                                    <width>256</width>
+                                    <height>62</height>
+                                    <font>Smaller</font>
+                                    <aligny>top</aligny>
+                                    <textcolor>$VAR[ThemeColorVar]</textcolor>
+                                    <label>$LOCALIZE[515]:</label>
+                                    <textoffsetx>8</textoffsetx>
+                                </control>
+                                <control type="label">
+                                    <posx>256</posx>
+                                    <width>680</width>
+                                    <height>62</height>
+                                    <font>Smaller</font>
+                                    <aligny>top</aligny>
+                                    <label fallback="416">$INFO[ListItem.Genre]</label>
+                                    <textcolor>White2</textcolor>
+                                    <textoffsetx>8</textoffsetx>
+                                </control>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <posy>248</posy>
+                            <control type="group">
+                                <description>Last played</description>
+                                <control type="label">
+                                    <posx>0</posx>
+                                    <width>256</width>
+                                    <height>62</height>
+                                    <font>Smaller</font>
+                                    <aligny>top</aligny>
+                                    <textcolor>$VAR[ThemeColorVar]</textcolor>
+                                    <label>$LOCALIZE[568]:</label>
+                                    <textoffsetx>8</textoffsetx>
+                                </control>
+                                <control type="label">
+                                    <posx>256</posx>
+                                    <width>680</width>
+                                    <height>62</height>
+                                    <font>Smaller</font>
+                                    <aligny>top</aligny>
+                                    <label fallback="416">$INFO[ListItem.LastPlayed]</label>
+                                    <textcolor>White2</textcolor>
+                                    <textoffsetx>8</textoffsetx>
+                                </control>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <posy>310</posy>
+                            <control type="group">
+                                <description>Last played</description>
+                                <control type="label">
+                                    <posx>0</posx>
+                                    <width>256</width>
+                                    <height>62</height>
+                                    <font>Smaller</font>
+                                    <aligny>top</aligny>
+                                    <textcolor>$VAR[ThemeColorVar]</textcolor>
+                                    <label>$LOCALIZE[567]:</label>
+                                    <textoffsetx>8</textoffsetx>
+                                </control>
+                                <control type="label">
+                                    <posx>256</posx>
+                                    <width>680</width>
+                                    <height>62</height>
+                                    <font>Smaller</font>
+                                    <aligny>top</aligny>
+                                    <label fallback="416">$INFO[ListItem.PlayCount]</label>
+                                    <textcolor>White2</textcolor>
+                                    <textoffsetx>8</textoffsetx>
+                                </control>
+                            </control>
+                        </control>
+                    </control>
+                    <control type="image">
+                        <description>Line</description>
+                        <posx>10</posx>
+                        <posy>382</posy>
+                        <height>1</height>
+                        <width>1136</width>
+                        <texture>common/grey.png</texture>
+                        <colordiffuse>55FFFFFF</colordiffuse>
+                    </control>
+                    <control type="group">
+                        <posy>392</posy>
+                        <control type="label">
+                            <posx>0</posx>
+                            <width>256</width>
+                            <height>62</height>
+                            <font>Smaller</font>
+                            <aligny>top</aligny>
+                            <textcolor>$VAR[ThemeColorVar]</textcolor>
+                            <label>$LOCALIZE[569]:</label>
+                            <textoffsetx>8</textoffsetx>
+                        </control>
+                        <control type="textbox" id="51">
+                            <description>Plot outline</description>
+                            <posx>256</posx>
+                            <posy>0</posy>
+                            <width>880</width>
+                            <height>250</height>
+                            <align>left</align>
+                            <font>Smaller</font>
+                            <label fallback="416">$VAR[ListItem.Comment]</label>
+                            <pagecontrol>61</pagecontrol>
+                            <autoscroll>false</autoscroll>
+                        </control>
+                        <control type="scrollbar" id="61">
+                            <posx>900</posx>
+                            <posy>0</posy>
+                            <width>6</width>
+                            <height>250</height>
+                            <texturesliderbackground>-</texturesliderbackground>
+                            <texturesliderbar>dialogs/scrollbar.png</texturesliderbar>
+                            <texturesliderbarfocus>dialogs/scrollbar.png</texturesliderbarfocus>
+                            <textureslidernib>-</textureslidernib>
+                            <textureslidernibfocus>-</textureslidernibfocus>
+                            <onleft>50</onleft>
+                            <onright>50</onright>
+                            <showonepage>false</showonepage>
+                            <orientation>vertical</orientation>
+                            <animation effect="fade" start="75" end="0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(61) + !Control.HasFocus(51)">Conditional</animation>
+                        </control>
                     </control>
                     <control type="grouplist">
-                        <posx>600</posx>
-                        <posy>0</posy>
-                        <width>1320</width>
-                        <align>center</align>
+                        <posx>256</posx>
+                        <posy>690</posy>
+                        <itemgap>20</itemgap>
                         <orientation>horizontal</orientation>
-                        <itemgap>0</itemgap>
                         <control type="image">
-                            <width>264</width>
-                            <height>90</height>
-                            <include>toast_back</include>
-                        </control>
-                        <control type="image">
-                            <width>264</width>
-                            <height>90</height>
-                            <include>toast_back</include>
+                            <width>100</width>
+                            <height>100</height>
+                            <colordiffuse>White2</colordiffuse>
+                            <texture>$INFO[ListItem.VideoCodec,flags/video/,.png]</texture>
+                            <aspectratio align="center">keep</aspectratio>
+                            <visible>!IsEmpty(ListItem.VideoCodec)</visible>
                         </control>
                         <control type="image">
-                            <width>264</width>
-                            <height>90</height>
-                            <include>toast_back</include>
+                            <width>100</width>
+                            <height>100</height>
+                            <colordiffuse>White2</colordiffuse>
+                            <texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+                            <aspectratio align="center" aligny="center">keep</aspectratio>
+                            <visible>!IsEmpty(ListItem.AudioCodec)</visible>
                         </control>
                         <control type="image">
-                            <width>264</width>
-                            <height>90</height>
-                            <include>toast_back</include>
+                            <width>100</width>
+                            <height>100</height>
+                            <colordiffuse>White2</colordiffuse>
+                            <texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+                            <aspectratio align="center" aligny="center">keep</aspectratio>
+                            <visible>!IsEmpty(ListItem.VideoResolution)</visible>
                         </control>
                         <control type="image">
-                            <width>264</width>
-                            <height>90</height>
-                            <include>toast_back</include>
+                            <width>100</width>
+                            <height>100</height>
+                            <colordiffuse>White2</colordiffuse>
+                            <texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+                            <aspectratio align="center" aligny="center">keep</aspectratio>
+                            <visible>!IsEmpty(ListItem.VideoAspect)</visible>
                         </control>
                         <control type="image">
-                            <width>264</width>
-                            <height>90</height>
-                            <include>toast_back</include>
+                            <width>100</width>
+                            <height>100</height>
+                            <colordiffuse>White2</colordiffuse>
+                            <texture>$INFO[ListItem.Studio,flags/studios/,.png]</texture>
+                            <aspectratio align="center" aligny="center">keep</aspectratio>
+                            <visible>!IsEmpty(ListItem.Studio)</visible>
                         </control>
-                    </control>
-
-                    <control type="group">
-                        <posx>600</posx>
-                        <control type="label">
-                            <posy>2</posy>
-                            <width>264</width>
-                            <height>60</height>
-                            <align>center</align>
-                            <label fallback="31042">$INFO[ListItem.PlayCount,[B],[/B]]</label>
-                            <font>Large</font>
-                            <textoffsetx>4</textoffsetx>
-                            <textcolor>White2</textcolor>
-                        </control>
-                        <control type="label">
-                            <posy>52</posy>
-                            <width>264</width>
-                            <height>30</height>
-                            <align>center</align>
-                            <label>[LOWERCASE]$LOCALIZE[576][/LOWERCASE]</label>
-                            <font>Medium_Small</font>
-                            <textoffsetx>4</textoffsetx>
-                            <textcolor>White2</textcolor>
-                        </control>
-                    </control>
-                    <control type="group">
-                        <posx>864</posx>
-                        <control type="label">
-                            <posy>2</posy>
-                            <width>264</width>
-                            <height>60</height>
-                            <align>center</align>
-                            <label fallback="31045">$INFO[ListItem.LastPlayed,[B],[/B]]</label>
-                            <font>Medium_Floor_Caps</font>
-                            <textoffsetx>4</textoffsetx>
-                            <textcolor>White2</textcolor>
-                        </control>
-                        <control type="label">
-                            <posy>52</posy>
-                            <width>264</width>
-                            <height>30</height>
-                            <align>center</align>
-                            <label>[LOWERCASE]$LOCALIZE[568][/LOWERCASE]</label>
-                            <font>Medium_Small</font>
-                            <textoffsetx>4</textoffsetx>
-                            <textcolor>White2</textcolor>
+                        <control type="image">
+                            <width>100</width>
+                            <height>100</height>
+                            <colordiffuse>White2</colordiffuse>
+                            <texture>$INFO[ListItem.Rating,flags/stars/,.png]</texture>
+                            <aspectratio align="center" aligny="center">keep</aspectratio>
+                            <visible>!IsEmpty(ListItem.Rating)</visible>
                         </control>
                     </control>
                 </control>
-                <control type="image">
-                    <posx>1668</posx>
-                    <width>240</width>
-                    <height>90</height>
-                    <colordiffuse>White2</colordiffuse>
-                    <include>MediaFlagVars</include>
-                    <texture fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
-                </control>
-                <control type="label">
-                    <posx>1192</posx>
-                    <posy>0</posy>
-                    <width>135</width>
-                    <height>90</height>
-                    <align>center</align>
-                    <label>[B]$INFO[ListItem.Year][/B]</label>
-                    <font>Large</font>
-                    <textcolor>White2</textcolor>
-                </control>
-                <control type="image">
-                    <posx>1456</posx>
-                    <colordiffuse>White2</colordiffuse>
-                    <include>MediaFlagVars</include>
-                    <texture>$INFO[ListItem.FileExtension,flags/audio/,.png]</texture>
-                    <visible>!IsEmpty(ListItem.FileExtension)</visible>
-                </control>
-            </control>
-            <control type="button" id="4002">
-                <posx>1320</posx>
-                <posy>450</posy>
-                <width>600</width>
-                <height>342</height>
-                <onup>6051</onup>
-                <ondown>61</ondown>
-                <onleft>9000</onleft>
-                <onright>9000</onright>
-                <onclick condition="IsEmpty(Window(songinformation).Property(FanartZoom))">SetProperty(FanartZoom,True,songinformation)</onclick>
-                <onclick condition="!IsEmpty(Window(songinformation).Property(FanartZoom))">ClearProperty(FanartZoom,songinformation)</onclick>
-                <onback condition="!IsEmpty(Window(songinformation).Property(FanartZoom))">ClearProperty(FanartZoom,songinformation)</onback>
-                <onback condition="IsEmpty(Window(songinformation).Property(FanartZoom))">Dialog.Close(songinformation)</onback>
-                <animation effect="zoom" start="1320,450,600,342" end="-10,-10,1940,1100" time="640" tween="cubic" condition="!IsEmpty(Window(songinformation).Property(FanartZoom))">Conditional</animation>
-            </control>
-            <control type="image">
-                <posx>1320</posx>
-                <posy>450</posy>
-                <width>600</width>
-                <height>342</height>
-                <aspectratio>scale</aspectratio>
-                <texture>$INFO[ListItem.Art(fanart)]</texture>
-                <bordersize>2</bordersize>
-                <animation effect="zoom" start="1320,450,600,342" end="-10,-10,1940,1100" time="640" tween="cubic" condition="!IsEmpty(Window(songinformation).Property(FanartZoom))">Conditional</animation>
             </control>
         </control>
     </controls>
